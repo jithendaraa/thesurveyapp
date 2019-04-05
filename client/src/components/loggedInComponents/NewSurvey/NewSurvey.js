@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import classes from './NewSurvey.css';
+import Node from '../Node/Node';
 
-class NewSurvey extends Component{
+class NewSurvey extends Component {
 
     state = {
         currentDepth: 0
@@ -12,10 +13,12 @@ class NewSurvey extends Component{
         let clickedId = e.target.id;
         let clickedDepth = parseInt(clickedId.split('')[0]);
         let elemNumber = parseInt(clickedId.split('')[2]);
-        
+
         let clickedElem = document.getElementById(clickedId);
         console.log(clickedElem.parentElement.style.width);
-    
+
+        let childWrapper = document.createElement("div")
+
         // console.log(parentDiv);
         // console.log(clickedDepth);
         // console.log(elemNumber);
@@ -44,20 +47,53 @@ class NewSurvey extends Component{
         //         div.addEventListener('click', this.makeChildren);
         //         wrapperDiv.appendChild(div);
         //     }
-        
+
         //     parentDiv.appendChild(wrapperDiv);
         // }
         // console.log(this.state.currentDepth)
     }
 
-    render(){
-        return(
+    nodeclicked = (e) => {
+        console.log(e.button);
+        let id = e.target.id;
+        let depth = parseInt(e.target.id.split('')[0]);
+        let elemNumber = parseInt(e.target.id.split('')[2]);
+        // console.log(depth);
+        // console.log(elemNumber);
+    }
+
+    render() {
+        return (
             <div>
                 <center>
-                    <h1 style={{color: "white"}}>New Survey</h1>
-                    <div id="0" className={classes.Wrap}>
-                        <div id='0_1' className={classes.Node} onMouseDown={this.makeChildren}></div>
+                    <h1 style={{ color: "white" }}>New Survey</h1>
+                    <div>
+                        <Node id="1_1" onMouseDown={this.nodeclicked}/>
                     </div>
+
+                    <div className={classes.FlexingA}>
+                        <Node id="2_1" onMouseDown={this.nodeclicked}/>
+                        <Node id="2_2" onMouseDown={this.nodeclicked}/>
+                    </div>
+
+                    <div className={classes.FlexingB}>
+                        <Node id="3_1" onMouseDown={this.nodeclicked}/>
+                        <Node id="3_2" onMouseDown={this.nodeclicked}/>
+                        <Node id="3_3" onMouseDown={this.nodeclicked}/>
+                        <Node id="3_4" onMouseDown={this.nodeclicked}/>
+                    </div>
+
+                    <div className={classes.FlexingC}>
+                        <Node id="4_1" />
+                        <Node id="4_2" />
+                        <Node id="4_3" />
+                        <Node id="4_4" />
+                        <Node id="4_5" />
+                        <Node id="4_6" />
+                        <Node id="4_7" />
+                        <Node id="4_8" />
+                    </div>
+
                 </center>
             </div>
         )
