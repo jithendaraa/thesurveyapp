@@ -1,0 +1,47 @@
+.header{
+    color: goldenrod;
+    float: left;
+    /* padding-top: 15px; */
+    margin: 15px 15px;
+    /* font-size: 30px; */
+}
+
+.navbar{
+    /* display: inline-block; */
+    text-align: center;
+    width: 100%;
+    float: right;
+    background-color: rgb(96, 117, 165);
+}
+
+.pad{
+    padding-top: 75px;
+}
+
+.separator{
+    width: 95%;
+    /* position: relative; */
+    /* top: 60px; */
+    height: 2px;
+    background-color: rgb(14, 33, 78);
+    border-radius: 1px;
+}
+
+.guestHome{
+    text-align: center;
+    background-color: rgb(96, 117, 165);
+}
+
+.pageContent{
+    text-align: center;
+    /* background-color: rgb(96, 117, 165); */
+    color: white;
+    /* padding-right: 50%; */
+    
+    /* float: left; */
+    
+}
+
+
+
+
