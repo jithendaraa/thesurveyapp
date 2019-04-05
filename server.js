@@ -1,9 +1,12 @@
 const express = require('express');
 require('./services/passport');
 const mongoose = require('mongoose');
+const keys = require('./config/keys');
 const http = require('http');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
+
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true }).then(() => console.log("connected <3")); 
 
 let app = express();
 
