@@ -1,0 +1,25 @@
+.LeftHead{
+    color: orange;
+}
+
+.RightHead{
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Wrapper{
+    display: flex ; 
+    flex-wrap: wrap ; 
+    justify-content:  space-between ; 
+    width:  80%;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+.Separator{
+    width: 75%;
+    /* transition: width 2s; */
+    height: 4px;
+    transition: width 3s ease-out;
+    background-image:  linear-gradient(to right, rgb(255, 165, 0), rgb(0,0,0) );
+}

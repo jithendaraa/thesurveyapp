@@ -4,11 +4,10 @@ import classes from './Home.css';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 
-// import Header from '../loggedInComponents/Header';
+import Header from '../loggedInComponents/Header/Header';
 // import Dashboard from '../loggedInComponents/Dashboard/Dashboard';
 import Spinner from '../UI/Spinner/Spinner';
 import GOAuthBtn from '../UI/Button/GoogleOAuthBtn';
-
 
 
 const guestHome = (
@@ -55,8 +54,8 @@ class Home extends Component {
                 
                 let loggedInHome = (
                     <div>
-                        ha
-                        {/* <Header /> */}
+                        
+                        <Header />
                         {/* <Dashboard />    Contains dp, userName, userEmail{search}{posts} */}
                     </div>);
                 return (
