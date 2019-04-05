@@ -1,30 +1,24 @@
 const express = require('express');
-require('./services/passport');
+
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const http = require('http');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
 
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true }).then(() => console.log("connected <3")); 
-
 let app = express();
 
+require('./models/User');
+require('./services/passport');
+
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true }).then(() => console.log("connected <3")); 
+
 require('./routes/authRoutes')(app);
-
-
-
-
-
 
 
 // app.use(express.static(__dirname + 'public'));
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
-
-//Client ID: 303008842237-q4d50j6334a0i0221ups5dpegbigpv9u.apps.googleusercontent.com
-//Client Secret eu5t2rzniw5E00h5wWVGJb4L
-
 
 
 const PORT = process.env.PORT || 5000;
