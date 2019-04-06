@@ -25,7 +25,9 @@ const button = (props) => {
                     variant="contained"
                     color="primary"
                     style={{ color: props.color, width: props.width, height: props.height, fontSize: props.fontSize, paddingBottom: props.paddingBottom, backgroundColor: "black", borderRadius: props.borderRadius }}
-                    onClick={props.onClick}>{props.btnText}</Button>
+                    onClick={props.onClick}
+                    onMouseDown={props.onMouseDown}>{props.btnText}
+                    </Button>
             </a>
         </Aux>
     );
