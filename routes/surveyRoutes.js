@@ -19,9 +19,16 @@ module.exports = (app) => {
 
     });
 
-    app.get('/api/allSurveys', async(req, res) => {
+    app.get('/api/mySurveys', async(req, res) => {
         const surveys = await Survey.find({ _user: req.user.id });
-        console.log('surveys fetched')
+        console.log('my surveys fetched')
+        // console.log(surveys);
+        res.send(surveys);
+    });
+
+    app.get('/api/allSurveys', async(req, res) => {
+        const surveys = await Survey.find({});
+        console.log('all surveys fetched')
         // console.log(surveys);
         res.send(surveys);
     });

@@ -23,7 +23,7 @@ class Dashboard extends Component {
         // console.log(this.props.surveys);
         return (
             <div>
-               
+
                 {
                     this.props.surveys.reverse().map(survey => {
 
@@ -45,7 +45,7 @@ class Dashboard extends Component {
     checkDashboard() {
         if (this.props.surveys) {
             if (this.props.surveys.length === 0) {
-                return (<div style={{color: "white"}}>No surveys to display</div>)
+                return (<div style={{ color: "white" }}>No surveys to display</div>)
             }
             else if (this.props.surveys.length >= 1) {
                 return this.renderSurveys();
@@ -60,7 +60,7 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div style={{color: "white"}}>
+            <div style={{ color: "white" }}>
                 Dashboard
                 <center>
                     {this.checkDashboard()}
