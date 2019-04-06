@@ -98,7 +98,7 @@ class TakeSurveyPopup extends React.Component {
   render() {
     return (
       <div>
-        <MyButton onClick={this.handleClickOpen} btnText="TakeSurvey" />
+        <MyButton onClick={this.handleClickOpen} btnText="Take Survey" />
 
         <Dialog
           open={this.state.open}

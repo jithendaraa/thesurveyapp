@@ -13,20 +13,40 @@ import Spinner from '../../UI/Spinner/Spinner';
 
 class Dashboard extends Component {
 
+    constructor(props){
+        super(props);
+
+        this.responses = [];
+    }
 
     async componentDidMount() {
         await this.props.fetchSurveys();
         await this.props.fetchMyResponses();
-        console.log(this.props.responses)
+        console.log(this.props.responses);
+        // this.myResponses = this.props.responses._survey
     }
 
     renderSurveys = () => {
+        
         // console.log(this.props.surveys);
         return (
             <div>
 
                 {
                     this.props.surveys.reverse().map(survey => {
+
+                        let i = 0;
+                        let reqdResponse = null;
+                        for(i=0; i<this.props.responses.length; i++){
+                            if(this.props.responses[i]._survey.toString() === survey._id.toString() && this.props.responses[i].responseById === this.props.auth._id ){
+                                this.responses.push(this.props.responses[i]);
+                                reqdResponse = this.props.responses[i];
+                            }
+                        }
+
+                        console.log(reqdResponse)
+                        console.log(reqdResponse !== null)
+                        
 
                         return (
                             <div key={survey._id} style={{ paddingTop: "10px", paddingLeft: "30px" }}>
@@ -35,6 +55,8 @@ class Dashboard extends Component {
                                     postBody={survey.surveyName}
                                     questions={survey.questions}
                                     surveyId={survey._id}
+                                    responded={reqdResponse !== null}
+                                    response={reqdResponse}
                                 />
                             </div>
                         )
@@ -65,7 +87,8 @@ class Dashboard extends Component {
             <div style={{ color: "white" }}>
                 Dashboard
                 <center>
-                    {this.checkDashboard()}
+                    {this.props.responses !== null ? this.checkDashboard() : (<Spinner />) }
+                    {/* {this.checkDashboard()} */}
                 </center>
             </div>
         );

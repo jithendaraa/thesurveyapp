@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-// import Button from '@material-ui/core/Button';
+import Button from '../Button/Button';
 import Typography from '@material-ui/core/Typography';
 import TakeSurveyPopup from '../TakeSurveyPopup/TakeSurveyPopup';
 
@@ -58,7 +58,8 @@ function SimpleCard(props) {
       </CardContent>
       <CardActions>
         {/* <Button size="small" onClick={props.likeOnClick} hide={props.hide}>Take Survey</Button> */}
-        <TakeSurveyPopup questions={props.questions} surveyName={props.postBody} surveyId={props.surveyId}/>
+        {(props.responded === true) ? (<Button btnText="Responded" color="gray"/>) : (<TakeSurveyPopup questions={props.questions} surveyName={props.postBody} surveyId={props.surveyId}/>)}
+        
       </CardActions>
       </Zoom>
     </Card>
