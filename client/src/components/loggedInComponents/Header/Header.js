@@ -22,7 +22,7 @@ class Header extends Component {
                     </div>
                     <div className={classes.Separator}></div>
                 </center>
-                <div style={{color: "orange"}}>Currently logged in as: {this.props.auth.displayName}</div>
+                <b style={{color: "white"}}>Currently logged in as: {this.props.auth.displayName}</b>
             </div>
         )
     }

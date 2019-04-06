@@ -142,7 +142,7 @@ class NewSurvey extends Component {
                 
                     <center style={{paddingRight: "100px", paddingTop: "55px"}}>
                         
-                            <div style={{ cursor: "pointer", width: "5%" }}  ><Node id="1_1" type="yellow" /></div>
+                            <div style={{ cursor: "pointer", width: "5%" }}  ><Node id="1_1" treeType="head"  type="yellow" /></div>
                      
                     </center>
         
@@ -161,14 +161,14 @@ class NewSurvey extends Component {
                     </div>
 
                     <div className={classes.FlexingC}>
-                        <div className={classes.Nodewrap} id="4_1"><Node id="4_1" type="green" /></div>
-                        <div className={classes.Nodewrap} id="4_2"><Node id="4_2" type="red" /></div>
-                        <div className={classes.Nodewrap} id="4_3"><Node id="4_3" type="green" /></div>
-                        <div className={classes.Nodewrap} id="4_4"><Node id="4_4" type="red" /></div>
-                        <div className={classes.Nodewrap} id="4_5"><Node id="4_5" type="green" /></div>
-                        <div className={classes.Nodewrap} id="4_6"><Node id="4_6" type="red" /></div>
-                        <div className={classes.Nodewrap} id="4_7"><Node id="4_7" type="green" /></div>
-                        <div className={classes.Nodewrap} id="4_8"><Node id="4_8" type="red" /></div>
+                        <div className={classes.Nodewrap} id="4_1"><Node id="4_1" treeType="leaf" type="green" /></div>
+                        <div className={classes.Nodewrap} id="4_2"><Node id="4_2" treeType="leaf" type="red" /></div>
+                        <div className={classes.Nodewrap} id="4_3"><Node id="4_3" treeType="leaf" type="green" /></div>
+                        <div className={classes.Nodewrap} id="4_4"><Node id="4_4" treeType="leaf" type="red" /></div>
+                        <div className={classes.Nodewrap} id="4_5"><Node id="4_5" treeType="leaf" type="green" /></div>
+                        <div className={classes.Nodewrap} id="4_6"><Node id="4_6" treeType="leaf" type="red" /></div>
+                        <div className={classes.Nodewrap} id="4_7"><Node id="4_7" treeType="leaf" type="green" /></div>
+                        <div className={classes.Nodewrap} id="4_8"><Node id="4_8" treeType="leaf" type="red" /></div>
                     </div>
                 </center>
             </div>

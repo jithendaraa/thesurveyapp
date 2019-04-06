@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-
-
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
-// import axios from 'axios';
 import SimpleCard from '../../UI/Card/SimpleCard';
-
-// import classes from './Dashboard.css';
 import Spinner from '../../UI/Spinner/Spinner';
 
 
@@ -23,12 +18,10 @@ class Dashboard extends Component {
         await this.props.fetchSurveys();
         await this.props.fetchMyResponses();
         console.log(this.props.responses);
-        // this.myResponses = this.props.responses._survey
     }
 
     renderSurveys = () => {
-        
-        // console.log(this.props.surveys);
+       
         return (
             <div>
 
@@ -88,7 +81,6 @@ class Dashboard extends Component {
                 Dashboard
                 <center>
                     {this.props.responses !== null ? this.checkDashboard() : (<Spinner />) }
-                    {/* {this.checkDashboard()} */}
                 </center>
             </div>
         );

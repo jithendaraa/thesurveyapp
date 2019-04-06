@@ -71,8 +71,8 @@ class Node extends Component{
                         height="25px"
                         id={"inp" + this.props.id}
                         type={this.state.type}/>
-                    <Button btnText="Add Child" onMouseDown={this.mouseDown}/>
-                    <b>Depth: {this.depth} <br /> Element Number: {this.elemNumber}</b>
+                    {this.props.treeType !== "leaf" ? (<Button btnText="Add Child" onMouseDown={this.mouseDown}/>) : null }
+                    <b>Depth: {this.depth} <br /> Element Number: {this.elemNumber} <br /> {this.props.treeType === "head" ? null : (<b>Child of Element: {Math.ceil((this.elemNumber + 1)/2)}</b>)}</b>
                 </div>
             </div>
         )
