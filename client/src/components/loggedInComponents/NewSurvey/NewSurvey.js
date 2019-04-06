@@ -111,12 +111,8 @@ class NewSurvey extends Component {
             await this.props.postNewSurvey(surveyObj);
             
             console.log(this.props.surveys);
+            window.location.href = '/';
         }
-
-        
-
-
-
     }
 
     render() {

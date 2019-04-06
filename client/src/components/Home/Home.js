@@ -4,11 +4,11 @@ import classes from './Home.css';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 
-// import Header from '../loggedInComponents/Header/Header';
-// import Dashboard from '../loggedInComponents/Dashboard/Dashboard';
+import Header from '../loggedInComponents/Header/Header';
+import Dashboard from '../loggedInComponents/Dashboard/Dashboard';
 import Spinner from '../UI/Spinner/Spinner';
 import GOAuthBtn from '../UI/Button/GoogleOAuthBtn';
-import NewSurvey from '../loggedInComponents/NewSurvey/NewSurvey';
+// import NewSurvey from '../loggedInComponents/NewSurvey/NewSurvey';
 
 
 const guestHome = (
@@ -42,7 +42,7 @@ class Home extends Component {
 
     async componentDidMount() {
         await this.props.fetchUser();
-        console.log(this.props.auth)
+        // console.log(this.props.auth)
     }
 
     renderContent() {
@@ -56,9 +56,8 @@ class Home extends Component {
                 let loggedInHome = (
                     <div>
                         
-                        {/* <Header /> */}
-                        <NewSurvey />
-                        {/* <Dashboard />    Contains dp, userName, userEmail{search}{posts} */}
+                        <Header />
+                        <Dashboard />    
                     </div>);
                 return (
                     <div>
@@ -71,7 +70,9 @@ class Home extends Component {
     render() {
         return (
             <div>
-               {this.renderContent()}
+               <center>
+                    {this.renderContent()}
+               </center>    
             </div>
         );
     }

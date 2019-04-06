@@ -21,7 +21,8 @@ module.exports = (app) => {
 
     app.get('/api/allSurveys', async(req, res) => {
         const surveys = await Survey.find({ _user: req.user.id });
-        console.log(surveys);
+        console.log('surveys fetched')
+        // console.log(surveys);
         res.send(surveys);
     });
 

@@ -7,19 +7,6 @@ import { disconnect } from 'mongoose';
 
 class Header extends Component {
 
-    componentDidMount() {
-        document.getElementById('username').addEventListener('mouseover', (e) => {
-            let div = document.createElement("div");
-            div.innerHTML = this.props.auth.displayName;
-            console.log(e);
-            div.style.zIndex = 2;
-            div.style.position = "absolute";
-            div.style.top = e.clientY;
-            div.style.left = e.clientX;
-            div.style.backgroundColor = "red";
-            div.style.display = "block";
-        })
-    }
 
     render() {
         return (
@@ -28,7 +15,8 @@ class Header extends Component {
                     <div className={classes.Wrapper}>
                         <h2 className={classes.LeftHead}>The Survey App</h2>
                         <h2 className={classes.RightHead}>
-                            <div><Button id='username' btnText={this.props.auth.displayName.split('')[0]} borderRadius="20px" height="40px"/></div>
+                            <div style={{paddingLeft: "5px"}}><Button id='newSurveyBtn' btnText="New survey" href='/newSurvey'/></div>
+                            <div style={{paddingLeft: "5px"}}><Button id='username' btnText={this.props.auth.displayName.split('')[0]} borderRadius="20px" height="40px"/></div>
                             <div style={{paddingLeft: "5px"}}><Button btnText="logout" color="white" href='/api/logout'/></div>
                         </h2>
                     </div>
