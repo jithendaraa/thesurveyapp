@@ -96,7 +96,7 @@ class NewSurvey extends Component {
                 inpValues.push(inpElem.value);
             });
 
-            inpValues = this.inpValFilter(inpValues);
+            inpValues = this.inpValFilter(inpValues);           // convert aprropriate nodes to "" based on heirarchical inconsistency(parent = "" && child = valid implies parent and child = "")
             console.log(inpValues);
 
             let surveyObj = {
@@ -106,11 +106,19 @@ class NewSurvey extends Component {
                 questions: inpValues
             }
 
-            await this.props.postNewSurvey(surveyObj);
-            
-            console.log(this.props.surveys);
-            window.location.href = '/';
+
+            if(inpValues[0] !== "" && inpValues[0].trim() !== ""){
+                await this.props.postNewSurvey(surveyObj);
+                window.location.href = '/';
+            }
+
+            else{
+                alert("Your head question cannot be empty");
+            }
+
         }
+
+        
     }
 
     render() {
@@ -118,13 +126,27 @@ class NewSurvey extends Component {
             <div>
                 <center>
                     <h1 style={{ color: "white" }}>New Survey</h1>
-                    <b style={{ color: "white" }}>Name of the survey</b><Input id="surveyName" height="30px" />
 
-                    <Button btnText="Save survey" onClick={this.saveSurvey} />
+                        <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-around"}}>
+                            <div>
+                                <b style={{ color: "white" }}>Name of the survey</b><Input id="surveyName" height="30px" />
+                            </div>
+                            <div>
+                                <Button btnText="Save survey" onClick={this.saveSurvey} />
+                            </div>
+                        </div>
 
-                    <div style={{ border: "1px solid white" }}>
-                        <div style={{ cursor: "pointer", width: "5%" }}  ><Node id="1_1" type="yellow" /></div>
-                    </div>
+                    
+
+                    
+                
+                    <center style={{paddingRight: "100px", paddingTop: "55px"}}>
+                        
+                            <div style={{ cursor: "pointer", width: "5%" }}  ><Node id="1_1" type="yellow" /></div>
+                     
+                    </center>
+        
+                   
 
                     <div className={classes.FlexingA}>
                         <div className={classes.Nodewrap} id="2_1"  ><Node id="2_1" type="green" /></div>
