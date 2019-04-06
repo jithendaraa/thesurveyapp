@@ -136,40 +136,74 @@ class NewSurvey extends Component {
                             </div>
                         </div>
 
-                    
 
-                    
-                
-                    <center style={{paddingRight: "100px", paddingTop: "55px"}}>
-                        
+                    {/* Head Level-1 */}
+                    <center style={{paddingRight: "100px", paddingTop: "55px"}}>       
                             <div style={{ cursor: "pointer", width: "5%" }}  ><Node id="1_1" treeType="head"  type="yellow" /></div>
-                     
                     </center>
         
-                   
-
+                    {/* Level - 2 */}
                     <div className={classes.FlexingA}>
-                        <div className={classes.Nodewrap} id="2_1"  ><Node id="2_1" type="green" /></div>
-                        <div className={classes.Nodewrap} id="2_2"  ><Node id="2_2" type="red" /></div>
+                        <div style={{width: "49.9%"}}>
+                            <div className={classes.Nodewrap} id="2_1"  ><Node id="2_1" type="green" /></div>
+                        </div>
+                        <div style={{width: "49.9%"}}>
+                            <div className={classes.Nodewrap} id="2_2"  ><Node id="2_2" type="red" /></div>
+                        </div>
                     </div>
 
+
+                    {/* Level-3 */}
                     <div className={classes.FlexingB}>
-                        <div className={classes.Nodewrap} id="3_1"  ><Node id="3_1" type="green" /></div>
-                        <div className={classes.Nodewrap} id="3_2"  ><Node id="3_2" type="red" /></div>
-                        <div className={classes.Nodewrap} id="3_3"  ><Node id="3_3" type="green" /></div>
-                        <div className={classes.Nodewrap} id="3_4"  ><Node id="3_4" type="red" /></div>
+                        <div style={{width: "24.9%"}}>
+                            <div className={classes.Nodewrap} id="3_1"  ><Node id="3_1" type="green" /></div>
+                        </div>
+                        <div style={{width: "24.9%"}}>
+                            <div className={classes.Nodewrap} id="3_2"  ><Node id="3_2" type="red" /></div>
+                        </div>
+                        <div style={{width: "24.9%"}}>
+                            <div className={classes.Nodewrap} id="3_3"  ><Node id="3_3" type="green" /></div>
+                        </div>
+                        <div style={{width: "24.9%"}}>
+                            <div className={classes.Nodewrap} id="3_4"  ><Node id="3_4" type="red" /></div>
+                        </div> 
                     </div>
 
+                    {/* Level-4 */}
                     <div className={classes.FlexingC}>
-                        <div className={classes.Nodewrap} id="4_1"><Node id="4_1" treeType="leaf" type="green" /></div>
-                        <div className={classes.Nodewrap} id="4_2"><Node id="4_2" treeType="leaf" type="red" /></div>
-                        <div className={classes.Nodewrap} id="4_3"><Node id="4_3" treeType="leaf" type="green" /></div>
-                        <div className={classes.Nodewrap} id="4_4"><Node id="4_4" treeType="leaf" type="red" /></div>
-                        <div className={classes.Nodewrap} id="4_5"><Node id="4_5" treeType="leaf" type="green" /></div>
-                        <div className={classes.Nodewrap} id="4_6"><Node id="4_6" treeType="leaf" type="red" /></div>
-                        <div className={classes.Nodewrap} id="4_7"><Node id="4_7" treeType="leaf" type="green" /></div>
-                        <div className={classes.Nodewrap} id="4_8"><Node id="4_8" treeType="leaf" type="red" /></div>
+                        <div style={{width: "12.49%"}}>
+                            <div className={classes.Nodewrap} id="4_1"><Node id="4_1" treeType="leaf" type="green" /></div>
+                        </div>
+                        <div style={{width: "12.49%"}}>
+                            <div className={classes.Nodewrap} id="4_2"><Node id="4_2" treeType="leaf" type="red" /></div>
+ 
+                        </div>
+                        <div style={{width: "12.49%"}}>
+                            <div className={classes.Nodewrap} id="4_3"><Node id="4_3" treeType="leaf" type="green" /></div>
+                        </div>
+                        <div style={{width: "12.49%"}}>
+                            <div className={classes.Nodewrap} id="4_4"><Node id="4_4" treeType="leaf" type="red" /></div>
+ 
+                        </div>
+                        <div style={{width: "12.49%"}}>
+                            <div className={classes.Nodewrap} id="4_5"><Node id="4_5" treeType="leaf" type="green" /></div>
+                        </div>
+                        <div style={{width: "12.49%"}}>
+                            <div className={classes.Nodewrap} id="4_6"><Node id="4_6" treeType="leaf" type="red" /></div>
+ 
+                        </div>
+                        <div style={{width: "12.49%"}}>
+                            <div className={classes.Nodewrap} id="4_7"><Node id="4_7" treeType="leaf" type="green" /></div>
+                        </div>
+                        <div style={{width: "12.49%"}}>
+                            <div className={classes.Nodewrap} id="4_8"><Node id="4_8" treeType="leaf" type="red" /></div>
+                        </div>
                     </div>
+
+                    <div style={{paddingTop: "75px"}}>
+
+                    </div>
+
                 </center>
             </div>
         )
