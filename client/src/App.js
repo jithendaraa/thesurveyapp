@@ -12,7 +12,6 @@ class App extends Component {
 
   async componentDidMount() {
     await this.props.fetchUser();
-    
   }
 
   render() {

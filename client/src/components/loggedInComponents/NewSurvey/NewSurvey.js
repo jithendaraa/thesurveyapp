@@ -3,6 +3,8 @@ import classes from './NewSurvey.css';
 import Node from '../Node/Node';
 import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
+import {connect} from 'react-redux';
+import * as actions from '../../../actions';
 
 class NewSurvey extends Component {
 
@@ -12,30 +14,6 @@ class NewSurvey extends Component {
         this.maxDepth = 4;
     }
 
-
-    nodeClicked = () => {
-        let i = 0;
-        //     let id = e.target.id;
-        //     let depth = parseInt(id.split('')[0]);
-        //     let elemNumber = parseInt(id.split('')[2]);
-        //     // console.log("depth: " + depth);
-        //     // console.log("elemNUM: " + elemNumber);
-        //     if(e.button === 0){
-        //         let depthNextNode = depth + 1;
-        //         let elemNumNextNode = (2*elemNumber) - 1;
-        //         let reqdId = depthNextNode + "_" + elemNumNextNode;
-        //         let div = document.getElementById(reqdId);
-        //         div.style.display = "block";
-        //     }
-
-        //     if(e.button === 2){
-        //         let depthNextNode = depth + 1;
-        //         let elemNumNextNode = (2*elemNumber);
-        //         let reqdId = depthNextNode + "_" + elemNumNextNode;
-        //         let div = document.getElementById(reqdId);
-        //         div.style.display = "block";
-        //     } 
-    }
 
     changedHandler = (e) => {
         let i = 0;
@@ -122,10 +100,14 @@ class NewSurvey extends Component {
             inpValues = this.inpValFilter(inpValues);
             console.log(inpValues);
 
-            let sureyObj = {
+            let surveyObj = {
+                createdById: this.props.auth._id,
+                createdByName: this.props.auth.displayName,
                 surveyName: nameOfSurvey,
                 questions: inpValues
             }
+
+            this.props.postNewSurvey(surveyObj);
         }
 
         
@@ -175,6 +157,12 @@ class NewSurvey extends Component {
     }
 }
 
-export default NewSurvey;
+const mapStateToProps = state => {
+    return{
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps, actions)(NewSurvey);
 
 // 1+2+4+8 -- maxdepth 3(0,1,2,3)
