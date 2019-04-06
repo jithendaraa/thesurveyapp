@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import classes from './Node.css';
 
 class Node extends Component{
+    state = {
+        type: this.props.type === "green" ? "yes" : "no"
+    }
+
+    componentDidMount(){
+        console.log(this.state.type);
+    }
+
     render(){
         return(
             <div>
@@ -11,6 +19,7 @@ class Node extends Component{
                     className={classes.Node}
                     onClick={this.props.onClick}
                     onMouseDown={this.props.onMouseDown}
+                    style={{backgroundColor: this.props.type}}
                     >
                 </div>
             </div>

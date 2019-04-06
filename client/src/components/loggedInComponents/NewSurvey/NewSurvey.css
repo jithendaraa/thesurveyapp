@@ -4,6 +4,7 @@
     background-color: yellow;
     cursor: pointer;
     border: 1px solid black;
+    /* display: none; */
 }
 
 .Wrap{
@@ -29,4 +30,9 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding-top: 200px;
+}
+
+.Nodewrap{
+    border: 1px solid white;
+    display: none;
 }

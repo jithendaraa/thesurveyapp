@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './NewSurvey.css';
 import Node from '../Node/Node';
+import Button from '../../UI/Button/Button';
 
 class NewSurvey extends Component {
 
@@ -62,37 +63,67 @@ class NewSurvey extends Component {
         // console.log(elemNumber);
     }
 
+    nodeClicked = (e) => {
+        let id = e.target.id;
+        let depth = parseInt(e.target.id.split('')[0]);
+        let elemNumber = parseInt(e.target.id.split('')[2]);
+        console.log("depth: " + depth);
+        console.log("elemNUM: " + elemNumber);
+        if(e.button === 0){
+            console.log("in")
+            let depthNextNode = depth + 1;
+            let elemNumNextNode = (2*elemNumber) - 1;
+            let reqdId = depthNextNode + "_" + elemNumNextNode;
+            let div = document.getElementById(reqdId);
+            div.style.display = "block";
+        }
+
+        if(e.button === 2){
+            let depthNextNode = depth + 1;
+            let elemNumNextNode = (2*elemNumber);
+            let reqdId = depthNextNode + "_" + elemNumNextNode;
+            let div = document.getElementById(reqdId);
+            div.style.display = "block";
+        }
+
+        
+    }
+
     render() {
         return (
             <div>
                 <center>
                     <h1 style={{ color: "white" }}>New Survey</h1>
-                    <div>
-                        <Node id="1_1" onMouseDown={this.nodeclicked}/>
+                    <div style={{border: "1px solid white"}}>
+                        <div style={{cursor: "pointer"}} onMouseDown={this.nodeClicked}><Node id="1_1" onMouseDown={this.nodeclicked}/></div>
                     </div>
 
                     <div className={classes.FlexingA}>
-                        <Node id="2_1" onMouseDown={this.nodeclicked}/>
-                        <Node id="2_2" onMouseDown={this.nodeclicked}/>
+                        <div className={classes.Nodewrap} id="2_1" onMouseDown={this.nodeClicked}><Node id="2_1" type="green"/></div>
+                        <div className={classes.Nodewrap} id="2_2" onMouseDown={this.nodeClicked}><Node id="2_2" type="red"/></div>
                     </div>
 
                     <div className={classes.FlexingB}>
-                        <Node id="3_1" onMouseDown={this.nodeclicked}/>
-                        <Node id="3_2" onMouseDown={this.nodeclicked}/>
-                        <Node id="3_3" onMouseDown={this.nodeclicked}/>
-                        <Node id="3_4" onMouseDown={this.nodeclicked}/>
+                        <div className={classes.Nodewrap} id="3_1" onMouseDown={this.nodeClicked}><Node id="3_1" type="green"/></div>
+                        <div className={classes.Nodewrap} id="3_2" onMouseDown={this.nodeClicked}><Node id="3_2" type="red"/></div>
+                        <div className={classes.Nodewrap} id="3_3" onMouseDown={this.nodeClicked}><Node id="3_3" type="green"/></div>
+                        <div className={classes.Nodewrap} id="3_4" onMouseDown={this.nodeClicked}><Node id="3_4" type="red"/></div>
                     </div>
 
                     <div className={classes.FlexingC}>
-                        <Node id="4_1" />
-                        <Node id="4_2" />
-                        <Node id="4_3" />
-                        <Node id="4_4" />
-                        <Node id="4_5" />
-                        <Node id="4_6" />
-                        <Node id="4_7" />
-                        <Node id="4_8" />
+                        <div className={classes.Nodewrap} id="4_1"><Node id="4_1" type="green"/></div>
+                        <div className={classes.Nodewrap} id="4_2"><Node id="4_2" type="red"/></div>
+                        <div className={classes.Nodewrap} id="4_3"><Node id="4_3" type="green"/></div>
+                        <div className={classes.Nodewrap} id="4_4"><Node id="4_4" type="red"/></div>
+                        <div className={classes.Nodewrap} id="4_5"><Node id="4_5" type="green"/></div>
+                        <div className={classes.Nodewrap} id="4_6"><Node id="4_6" type="red"/></div>
+                        <div className={classes.Nodewrap} id="4_7"><Node id="4_7" type="green"/></div>
+                        <div className={classes.Nodewrap} id="4_8"><Node id="4_8" type="red"/></div>
                     </div>
+
+                    <center style={{position: "fixed", bottom: "100px", width: "100%"}}>
+                        <Button btnText="Save survey" />
+                    </center>
 
                 </center>
             </div>
