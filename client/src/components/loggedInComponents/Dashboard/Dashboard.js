@@ -16,7 +16,8 @@ class Dashboard extends Component {
 
     async componentDidMount() {
         await this.props.fetchSurveys();
-        // console.log(this.props.surveys[0])
+        await this.props.fetchMyResponses();
+        console.log(this.props.responses)
     }
 
     renderSurveys = () => {
@@ -74,7 +75,8 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
     return {
         auth: state.auth,
-        surveys: state.surveys
+        surveys: state.surveys,
+        responses: state.responses
     }
 }
 

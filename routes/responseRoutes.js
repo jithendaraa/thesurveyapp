@@ -17,7 +17,7 @@ module.exports = (app) => {
         res.send(req.body);
     });
 
-    app.get('/api/allResponses', async(req, res) => {
+    app.get('/api/responses', async(req, res) => {
         const responses = await Response.find({});
         console.log("all responses fetched");
         res.send(responses);
