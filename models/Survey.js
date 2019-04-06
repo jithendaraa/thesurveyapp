@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const responseSchema = require('./Response');
 
 const surveySchema = new Schema({
     createdById: String,

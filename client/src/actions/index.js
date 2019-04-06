@@ -17,6 +17,15 @@ export const postNewSurvey = (survey) => async dispatch => {
 export const fetchSurveys = () => async dispatch => {
     
     const surveys = await axios.get('/api/allSurveys');
-    
     dispatch({ type: actions.FETCH_SURVEYS, payload: surveys.data });
+}
+
+export const postResponse = (responseData) => async dispatch => {
+    console.log("responseData reached")
+    await axios.post('/api/newResponse', responseData);
+    console.log("New response given");
+
+    const responses = await axios.get('/api/allResponses');
+    console.log(responses);
+    dispatch({ type: actions.FETCH_RESPONSES, payload: responses.data });
 }

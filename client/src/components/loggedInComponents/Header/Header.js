@@ -3,7 +3,7 @@ import classes from './Header.css';
 import Button from '../../UI/Button/Button';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
-import { disconnect } from 'mongoose';
+// import { disconnect } from 'mongoose';
 
 class Header extends Component {
 

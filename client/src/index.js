@@ -10,10 +10,12 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import reduxThunk from 'redux-thunk';
 import authReducer from './reducers/authReducer';
 import surveyReducer from './reducers/surveyReducer';
+import responseReducer from './reducers/responseReducer';
 
 const reducers = combineReducers({
     auth: authReducer,
-    surveys: surveyReducer
+    surveys: surveyReducer,
+    responses: responseReducer
 });
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));  

@@ -8,7 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import MyButton from '../Button/Button';
 
-import axios from 'axios';
+// import axios from 'axios';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
 
@@ -29,6 +29,13 @@ class TakeSurveyPopup extends React.Component {
     this.response = [];
   }
 
+  componentDidMount(){
+    let i=0;
+    for(i=0; i<15; i++){
+      this.response[i] = "";
+    }
+  }
+
   handleClickOpen = () => {
     this.setState({ open: true });
   };
@@ -47,7 +54,7 @@ class TakeSurveyPopup extends React.Component {
         response = "no";
       }
 
-      this.response.push(response);
+      this.response[this.state.index] = response;
 
       if(response === "yes"){
         let index = this.state.index;
@@ -55,7 +62,7 @@ class TakeSurveyPopup extends React.Component {
           await this.setState({ index: (2*index + 1) });
         }
         else{
-          await this.setState({ btnText: "submit"});
+          await this.setState({ btnText: "Submit"});
         }
         
       }
@@ -72,10 +79,16 @@ class TakeSurveyPopup extends React.Component {
 
       if(this.state.btnText === "Submit"){
 
-        console.log(this.response);
+        await this.setState({index: 0, open: false});
+        console.log(this.props.surveyId);
+        let data = {
+          response: this.response,
+          responseById: this.props.auth._id,
+          responseByName: this.props.auth.displayName,
+          surveyId: this.props.surveyId
+        };
+        await this.props.postResponse(data);
         this.response = [];
-        this.setState({index: 0, open: "false"});
-
       }
 
   }
@@ -118,7 +131,7 @@ class TakeSurveyPopup extends React.Component {
                       btnText={this.state.btnText}
                       onClick={this.next}
                     >
-                      Next
+                      {this.state.btnText}
             </Button>
                   </DialogActions>
         </Dialog>

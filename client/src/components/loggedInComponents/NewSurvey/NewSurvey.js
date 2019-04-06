@@ -5,7 +5,7 @@ import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
 import {connect} from 'react-redux';
 import * as actions from '../../../actions';
-import { stat } from 'fs';
+// import { stat } from 'fs';
 
 class NewSurvey extends Component {
 
@@ -16,9 +16,7 @@ class NewSurvey extends Component {
     }
 
 
-    changedHandler = (e) => {
-        let i = 0;
-    }
+   
 
     getAllInpElems = (allInpIds) => {
         let allInpElems = [];
@@ -120,7 +118,7 @@ class NewSurvey extends Component {
             <div>
                 <center>
                     <h1 style={{ color: "white" }}>New Survey</h1>
-                    <b style={{ color: "white" }}>Name of the survey</b><Input id="surveyName" height="30px" changed={this.changedHandler} />
+                    <b style={{ color: "white" }}>Name of the survey</b><Input id="surveyName" height="30px" />
 
                     <Button btnText="Save survey" onClick={this.saveSurvey} />
 

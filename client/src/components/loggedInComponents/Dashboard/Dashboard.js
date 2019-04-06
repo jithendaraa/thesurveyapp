@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
-import axios from 'axios';
+// import axios from 'axios';
 import SimpleCard from '../../UI/Card/SimpleCard';
 
-import classes from './Dashboard.css';
+// import classes from './Dashboard.css';
 import Spinner from '../../UI/Spinner/Spinner';
 
 
@@ -33,6 +33,7 @@ class Dashboard extends Component {
                                     postedBy={survey.createdByName}
                                     postBody={survey.surveyName}
                                     questions={survey.questions}
+                                    surveyId={survey._id}
                                 />
                             </div>
                         )
