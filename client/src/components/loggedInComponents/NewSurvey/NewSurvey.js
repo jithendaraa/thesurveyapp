@@ -5,6 +5,7 @@ import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
 import {connect} from 'react-redux';
 import * as actions from '../../../actions';
+import { stat } from 'fs';
 
 class NewSurvey extends Component {
 
@@ -69,7 +70,7 @@ class NewSurvey extends Component {
         return inpValues;
     }
 
-    saveSurvey = () => {
+    saveSurvey = async() => {
         let nameOfSurvey = document.getElementById("surveyName").value;
 
         if (nameOfSurvey !== "" || nameOfSurvey.trim() !== "") {
@@ -82,7 +83,7 @@ class NewSurvey extends Component {
 
             for (depth = 1; depth < this.maxDepth + 1; depth++) {
                 for (elemNumber = 1; elemNumber < (Math.pow(2, depth - 1) + 1); elemNumber++) {
-                    console.log(depth + "_" + elemNumber);
+                    // console.log(depth + "_" + elemNumber);
                     let id = depth + "_" + elemNumber;
                     let inpId = "inp" + id;
                     allIds.push(id);
@@ -107,7 +108,9 @@ class NewSurvey extends Component {
                 questions: inpValues
             }
 
-            this.props.postNewSurvey(surveyObj);
+            await this.props.postNewSurvey(surveyObj);
+            
+            console.log(this.props.surveys);
         }
 
         
@@ -159,7 +162,8 @@ class NewSurvey extends Component {
 
 const mapStateToProps = state => {
     return{
-        auth: state.auth
+        auth: state.auth,
+        surveys: state.surveys
     }
 }
 

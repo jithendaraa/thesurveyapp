@@ -28,7 +28,7 @@ class Node extends Component{
                 await this.setState({ type: "no" })
             }
         }
-        console.log(this.state.type);
+        // console.log(this.state.type);
     }
 
     mouseDown = (e) => {    

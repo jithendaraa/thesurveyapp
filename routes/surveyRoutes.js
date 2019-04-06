@@ -6,7 +6,6 @@ const User = mongoose.model('users');
 module.exports = (app) => {
 
     app.post('/api/newSurvey', async(req, res) => {
-        console.log(req.body);
 
         const survey = await new Survey({
             _user: req.user.id,
@@ -15,15 +14,17 @@ module.exports = (app) => {
             questions: req.body.questions
         }).save();
 
-        // const getSurvey = await Survey.findOne({ createdById: req.body.createdById });
-        // const surveyId = getSurvey._id;
-        
+        console.log("new survey created");
+        res.send(req.body);
 
-        // const user = await User.findOne({ _id: req.body.createdById });
+    });
 
-        // console.log(user)
-        console.log("done")
+    app.get('/api/allSurveys', async(req, res) => {
+        const surveys = await Survey.find({ _user: req.user.id });
+        console.log(surveys);
+        res.send(surveys);
+    });
 
-    })
+    
 
 }
