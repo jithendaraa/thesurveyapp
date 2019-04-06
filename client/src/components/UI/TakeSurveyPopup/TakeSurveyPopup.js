@@ -20,8 +20,14 @@ class TakeSurveyPopup extends React.Component {
   state = {
     open: false,
     index: 0,
-    question: this.props.questions[0]
+    btnText: "Next" 
   };
+
+  constructor(props){
+    super(props);
+
+    this.response = [];
+  }
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -31,12 +37,46 @@ class TakeSurveyPopup extends React.Component {
     this.setState({ open: false });
   };
 
-  next = () => {
-      let yes = document.getElementById("yes");
-      let no = document.getElementById("no");
+  next = async() => {
+      let response;
+      if(document.getElementById("yes").checked){
+        response = "yes";
+      }
 
-      console.log(yes.checked);
-      console.log(no.checked);
+      else{
+        response = "no";
+      }
+
+      this.response.push(response);
+
+      if(response === "yes"){
+        let index = this.state.index;
+        if(this.props.questions[(2*index) + 1] !== "" && (2*index) + 1 < 14){
+          await this.setState({ index: (2*index + 1) });
+        }
+        else{
+          await this.setState({ btnText: "submit"});
+        }
+        
+      }
+
+      else if(response === "no"){
+        let index = this.state.index;
+        if(this.props.questions[(2*index) + 2] !== "" && (2*index) + 2 < 15){
+          await this.setState({ index: (2*index + 2) });
+        }
+        else{
+          await this.setState({ btnText: "Submit"});
+        }
+      }
+
+      if(this.state.btnText === "Submit"){
+
+        console.log(this.response);
+        this.response = [];
+        this.setState({index: 0, open: "false"});
+
+      }
 
   }
 
@@ -60,8 +100,8 @@ class TakeSurveyPopup extends React.Component {
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
-              <div>{this.state.question}</div>
-              <form>
+              <div>{this.props.questions[this.state.index]}</div>
+              <form id="response">
                 <input type="radio" name="gender" value="yes" id="yes" checked onClick={this.clicked}/> Yes<br />
                 <input type="radio" name="gender" value="no" id="no" onClick={this.clicked}/> No<br />
               </form> 
@@ -75,7 +115,7 @@ class TakeSurveyPopup extends React.Component {
             </Button>
                     <Button
                       type="submit"
-                      btnText="Next"
+                      btnText={this.state.btnText}
                       onClick={this.next}
                     >
                       Next
