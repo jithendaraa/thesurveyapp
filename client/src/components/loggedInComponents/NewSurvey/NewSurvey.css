@@ -15,21 +15,21 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding-top: 80px;
+    /* padding-top: 80px; */
 }
 
 .FlexingB{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding-top: 125px;
+    /* padding-top: 125px; */
 }
 
 .FlexingC{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding-top: 125px;
+    /* padding-top: 125px; */
 }
 
 .Nodewrap{

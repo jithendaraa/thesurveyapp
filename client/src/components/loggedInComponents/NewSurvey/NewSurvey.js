@@ -15,12 +15,8 @@ class NewSurvey extends Component {
         this.maxDepth = 4;
     }
 
-
-   
-
     getAllInpElems = (allInpIds) => {
         let allInpElems = [];
-
         allInpIds.map(inpId => {
             allInpElems.push(document.getElementById(inpId))
         });
@@ -72,13 +68,10 @@ class NewSurvey extends Component {
         let nameOfSurvey = document.getElementById("surveyName").value;
 
         if (nameOfSurvey !== "" || nameOfSurvey.trim() !== "") {
-
             let allIds = [];
             let allInpIds = [];
-
             let depth = 1;
             let elemNumber = 1;
-
             for (depth = 1; depth < this.maxDepth + 1; depth++) {
                 for (elemNumber = 1; elemNumber < (Math.pow(2, depth - 1) + 1); elemNumber++) {
                     // console.log(depth + "_" + elemNumber);
@@ -91,7 +84,6 @@ class NewSurvey extends Component {
 
             let inpElems = this.getAllInpElems(allInpIds);
             let inpValues = [];
-            
             inpElems.map(inpElem => {
                 inpValues.push(inpElem.value);
             });
@@ -141,6 +133,8 @@ class NewSurvey extends Component {
                     <center style={{paddingRight: "100px", paddingTop: "55px"}}>       
                             <div style={{ cursor: "pointer", width: "5%" }}  ><Node id="1_1" treeType="head"  type="yellow" /></div>
                     </center>
+
+                    <canvas id="canvas1" height="80px" width="1500px"></canvas>
         
                     {/* Level - 2 */}
                     <div className={classes.FlexingA}>
@@ -152,6 +146,8 @@ class NewSurvey extends Component {
                         </div>
                     </div>
 
+
+                    <canvas id="canvas2" height="125px" width="1500px"></canvas>
 
                     {/* Level-3 */}
                     <div className={classes.FlexingB}>
@@ -169,6 +165,7 @@ class NewSurvey extends Component {
                         </div> 
                     </div>
 
+                    <canvas id="canvas3" height="125px" width="1500px"></canvas>
                     {/* Level-4 */}
                     <div className={classes.FlexingC}>
                         <div style={{width: "12.49%"}}>
